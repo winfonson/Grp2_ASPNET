@@ -17,13 +17,6 @@ RUN apt install apt-transport-https -y
 
 RUN apt-get update
 
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod bionic main" > /etc/apt/sources.list.d/dotnetdev.list'
-
-RUN apt-get install apt-transport-https
-RUN apt-get update
-
 RUN apt install dotnet-sdk-3.1 -y
 
 COPY ./ ./
